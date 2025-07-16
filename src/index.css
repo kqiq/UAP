@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Klav";
+    src: url("./assets/klav.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@layer base {
+    :root {
+        --background: 255 255 255;
+        --foreground: 0 0 0;
+        --card: 255 255 255;
+        --card-foreground: 0 0 0;
+        --popover: 255 255 255;
+        --popover-foreground: 0 0 0;
+        --primary: 37 99 235;
+        --primary-foreground: 255 255 255;
+        --secondary: 243 244 246;
+        --secondary-foreground: 37 99 235;
+        --muted: 243 244 246;
+        --muted-foreground: 107 114 128;
+        --accent: 243 244 246;
+        --accent-foreground: 37 99 235;
+        --destructive: 239 68 68;
+        --destructive-foreground: 255 255 255;
+        --border: 229 231 235;
+        --input: 229 231 235;
+        --ring: 37 99 235;
+        --radius: 0.5rem;
+        --chart-1: 37 99 235;
+        --chart-2: 34 197 94;
+        --chart-3: 0 0 0;
+        --chart-4: 255 255 255;
+        --chart-5: 156 163 175;
+        --sidebar-background: 255 255 255;
+        --sidebar-foreground: 0 0 0;
+        --sidebar-primary: 37 99 235;
+        --sidebar-primary-foreground: 255 255 255;
+        --sidebar-accent: 243 244 246;
+        --sidebar-accent-foreground: 37 99 235;
+        --sidebar-border: 229 231 235;
+        --sidebar-ring: 37 99 235;
+    }
+
+    .dark {
+        --background: 0 0 0;
+        --foreground: 255 255 255;
+        --card: 0 0 0;
+        --card-foreground: 255 255 255;
+        --popover: 0 0 0;
+        --popover-foreground: 255 255 255;
+        --primary: 96 165 250;
+        --primary-foreground: 0 0 0;
+        --secondary: 31 41 55;
+        --secondary-foreground: 96 165 250;
+        --muted: 31 41 55;
+        --muted-foreground: 156 163 175;
+        --accent: 31 41 55;
+        --accent-foreground: 96 165 250;
+        --destructive: 220 38 38;
+        --destructive-foreground: 255 255 255;
+        --border: 31 41 55;
+        --input: 31 41 55;
+        --ring: 96 165 250;
+        --chart-1: 96 165 250;
+        --chart-2: 34 197 94;
+        --chart-3: 255 255 255;
+        --chart-4: 0 0 0;
+        --chart-5: 75 85 99;
+        --sidebar-background: 0 0 0;
+        --sidebar-foreground: 255 255 255;
+        --sidebar-primary: 96 165 250;
+        --sidebar-primary-foreground: 0 0 0;
+        --sidebar-accent: 31 41 55;
+        --sidebar-accent-foreground: 96 165 250;
+        --sidebar-border: 31 41 55;
+        --sidebar-ring: 96 165 250;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html {
+        @apply scroll-smooth;
+        font-family: Klav, system-ui, sans-serif;
+    }
+    body {
+        @apply bg-background text-foreground overscroll-none;
+        font-synthesis-weight: none;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Custom scrollbar styling */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: hsl(var(--border));
+        border-radius: 8px;
+    }
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: hsl(var(--border)) transparent;
+    }
+}
+
+@layer utilities {
+    .step {
+        counter-increment: step;
+    }
+
+    .step:before {
+        @apply absolute w-10 h-10 bg-muted rounded-full font-mono font-medium text-center text-base inline-flex items-center justify-center border-4 border-background;
+        @apply ml-[-50px] mt-[-4px];
+        content: counter(step);
+    }
+
+    .chunk-container {
+        @apply shadow-none;
+    }
+
+    .chunk-container::after {
+        content: "";
+        @apply absolute -inset-4 shadow-xl rounded-xl border;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .border-grid {
+        @apply border-border/30 dark:border-border;
+    }
+
+    .container-wrapper {
+        @apply max-w-none border-x border-border/30 dark:border-border mx-auto w-full;
+    }
+
+    .container {
+        @apply px-8 mx-auto max-w-none;
+    }
+}
