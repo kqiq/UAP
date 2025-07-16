@@ -140,5 +140,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 💬 [Admin Panel Discussions](https://github.com/kqiq/uap/discussions)
 
 ---
+## 💙 Open Source
 
-Built for with Passion. 
+Built with passion for the open source community. Your contributions make this project better for everyone.
